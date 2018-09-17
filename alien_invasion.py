@@ -3,6 +3,7 @@ import pygame
 
 from settings import Settings
 from ship import Ship
+from alien import Alien
 import game_functions as gf
 
 
@@ -14,9 +15,11 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
 
     ship = Ship(screen)
+    alien = Alien(screen)
 
     while True:
-        gf.check_events()
+        gf.check_events(ship)
+        ship.update()
         gf.update_screen(ai_settings, screen, ship)
 
 
